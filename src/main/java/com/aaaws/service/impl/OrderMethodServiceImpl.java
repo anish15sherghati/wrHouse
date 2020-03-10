@@ -43,8 +43,9 @@ public class OrderMethodServiceImpl implements IOrderMethodService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Object[]> getOrderIdAndMode(String mode) {
-		return dao.getOrderIdAndMode(mode);
+	public List<Object[]> getOrderIdAndCode(String mode) {
+		return dao.getOrderIdAndCode(mode);
 	}
+
 
 }

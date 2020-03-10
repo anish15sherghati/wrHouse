@@ -1,6 +1,5 @@
 package com.aaaws.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "parttaba")
@@ -28,8 +26,12 @@ public class Parts {
 	private Uom uomObj;
 	
 	@ManyToOne
-	@JoinColumn(name="omidFk")
+	@JoinColumn(name="omidsaleFk")
 	private OrderMethod ordSaleOb;
+	
+	@ManyToOne
+	@JoinColumn(name="omidPurcFk")
+	private OrderMethod ordPurOb;
 	
 	private String partBcost;
 	private String partDesc;
@@ -91,6 +93,14 @@ public class Parts {
 		this.partHeight = partHeight;
 	}
 
+	public OrderMethod getOrdPurOb() {
+		return ordPurOb;
+	}
+
+	public void setOrdPurOb(OrderMethod ordPurOb) {
+		this.ordPurOb = ordPurOb;
+	}
+
 	public Uom getUomObj() {
 		return uomObj;
 	}
@@ -119,7 +129,7 @@ public class Parts {
 	public String toString() {
 		return "Parts [partId=" + partId + ", partCode=" + partCode + ", partWidth=" + partWidth + ", partLength="
 				+ partLength + ", partHeight=" + partHeight + ", uomObj=" + uomObj + ", ordSaleOb=" + ordSaleOb
-				+ ", partBcost=" + partBcost + ", partDesc=" + partDesc + "]";
+				+ ", ordPurOb=" + ordPurOb + ", partBcost=" + partBcost + ", partDesc=" + partDesc + "]";
 	}
 	
 }

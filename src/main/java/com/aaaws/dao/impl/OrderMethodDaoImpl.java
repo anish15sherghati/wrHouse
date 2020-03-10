@@ -42,8 +42,8 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 	}
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<Object[]> getOrderIdAndMode(String mode) {
-		String sql = " select ordId, ordMode from com.aaaws.model.OrderMethod where ordMode=?0 ";
+	public List<Object[]> getOrderIdAndCode(String mode) {
+		String sql = " select ordId, ordCode from com.aaaws.model.OrderMethod where ordMode=?0 ";
 		return (List<Object[]>) ht.find(sql, mode);
 	}
 

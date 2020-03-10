@@ -46,7 +46,6 @@ public class UomDaoImpl implements IUomDao {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Object[]> getUomIdAndModel() {
 		String sql = " select uomId, uomModel from com.aaaws.model.Uom ";
-
 		return (List<Object[]>) ht.find(sql);
 	}
 }

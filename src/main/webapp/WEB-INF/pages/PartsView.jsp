@@ -40,10 +40,13 @@
 		</tr>
 		
 		<tr>
-			<th>OrderMethod</th>
-			<td>${parts.ordSaleOb.ordMode}</td>
+			<th>OrderMethodSCode</th>
+			<td>${parts.ordSaleOb.ordCode}</td>
 		</tr>
-		
+		<tr>
+			<th>OrderMethodPCode</th>
+			<td>${parts.ordPurOb.ordCode}</td>
+		</tr>
 		<tr>
 			<th>Note</th>
 			<td>${parts.partDesc}</td>

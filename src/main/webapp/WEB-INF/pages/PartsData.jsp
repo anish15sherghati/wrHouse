@@ -16,7 +16,8 @@
 			<th>Length</th>
 			<th>Height</th>
 			<th>UomModel</th>
-			<th>OrderMMode</th>
+			<th>OrderMethodSCode</th>
+			<th>OrderMethodPCode</th>
 			<th>BaseCost</th>
 			<th>Note</th>
 			<th colspan="3">Operation</th>
@@ -30,7 +31,8 @@
 				<td>${ob.partLength}</td>
 				<td>${ob.partHeight}</td>
 				<td>${ob.uomObj.uomModel}</td>
-				<td>${ob.ordSaleOb.ordMode}</td>
+				<td>${ob.ordSaleOb.ordCode}</td>
+				<td>${ob.ordPurOb.ordCode}</td>
 				<td>${ob.partBcost}</td>
 				<td>${ob.partDesc}</td>
 

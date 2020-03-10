@@ -33,14 +33,14 @@ public class PartsController {
 		Map<Integer, String> uomModel = CommonUi.convert(listUom);
 		model.addAttribute("uomModel", uomModel);
 
-		List<Object[]> listSaleOrd = ordService.getOrderIdAndMode("Sale");
-		Map<Integer, String> OrdModelS = CommonUi.convert(listSaleOrd);
-		model.addAttribute("OrdModelS", OrdModelS);
+		List<Object[]> salelist = ordService.getOrderIdAndCode("Sale");
+		Map<Integer, String> ordCodeS = CommonUi.convert(salelist);
+		model.addAttribute("ordCodeS", ordCodeS);
 		
-		List<Object[]> listPurOrd = ordService.getOrderIdAndMode("Purchase");
-		Map<Integer, String> OrdModelP = CommonUi.convert(listPurOrd);
+		List<Object[]> purlist = ordService.getOrderIdAndCode("Purchase");
+		Map<Integer, String> ordCodeP = CommonUi.convert(purlist);
 		
-		model.addAttribute("OrdModelP", OrdModelP);
+		model.addAttribute("ordCodeP", ordCodeP);
 	}
 
 	@RequestMapping("/register")

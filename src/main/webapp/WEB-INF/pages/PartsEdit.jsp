@@ -26,15 +26,14 @@ Uom Model: <form:select path="uomObj.uomId">
 	<form:option value="">-select-</form:option>
 	<form:options items="${uomModel}" />
 	</form:select>	<br>		
-OrderMethod Mode:<form:select path="ordSaleOb.ordId">
+OrderMethod SCode:<form:select path="ordSaleOb.ordId">
 	<form:option value="">-select-</form:option>
-	<form:options items="${OrdModelS}" />
-	</form:select>    <form:select path="ordSaleOb.ordId">
+	<form:options items="${ordCodeS}" />
+	</form:select> <br>   
+OrderMethod PCode:<form:select path="ordPurOb.ordId">
 	<form:option value="">-select-</form:option>
-	<form:options items="${OrdModelP}" />
-	            </form:select>
-	            <br>
-		
+	<form:options items="${ordCodeP}" />
+	</form:select><br>		
 Description: <form:textarea path="partDesc" /><br>
 		<input type="submit" value="UPDATE"></pre>
 	</form:form>

@@ -17,6 +17,6 @@ public interface IOrderMethodDao {
 
 	List<Object[]> getOrderModeCount();
 
-	List<Object[]> getOrderIdAndMode(String mode);
+	List<Object[]> getOrderIdAndCode(String mode);
 
 }
