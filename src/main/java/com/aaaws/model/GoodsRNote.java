@@ -3,6 +3,8 @@ package com.aaaws.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,10 @@ public class GoodsRNote {
 	private Integer grnId;
 	private String grnCode;
 	private String grnType;
-	private String grnOrderCode;
+	@ManyToOne
+	@JoinColumn(name="pidFk")
+	private PurchaseOrder PurOrderCode;
+	
 	private String grnDesc;
 	
 	public GoodsRNote(Integer grnId) {
@@ -42,11 +47,11 @@ public class GoodsRNote {
 	public void setGrnType(String grnType) {
 		this.grnType = grnType;
 	}
-	public String getGrnOrderCode() {
-		return grnOrderCode;
+	public PurchaseOrder getPurOrderCode() {
+		return PurOrderCode;
 	}
-	public void setGrnOrderCode(String grnOrderCode) {
-		this.grnOrderCode = grnOrderCode;
+	public void setPurOrderCode(PurchaseOrder purOrderCode) {
+		PurOrderCode = purOrderCode;
 	}
 	public String getGrnDesc() {
 		return grnDesc;
@@ -56,8 +61,8 @@ public class GoodsRNote {
 	}
 	@Override
 	public String toString() {
-		return "GoodsRNote [grnId=" + grnId + ", grnCode=" + grnCode + ", grnType=" + grnType + ", grnOrderCode="
-				+ grnOrderCode + ", grnDesc=" + grnDesc + "]";
+		return "GoodsRNote [grnId=" + grnId + ", grnCode=" + grnCode + ", grnType=" + grnType + ", PurOrderCode="
+				+ PurOrderCode + ", grnDesc=" + grnDesc + "]";
 	}
 	
 

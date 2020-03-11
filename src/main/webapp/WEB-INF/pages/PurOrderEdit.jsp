@@ -13,6 +13,10 @@
 <pre>
 Purchase Id:<form:input path="purId"  readonly="true"/>
 Order Code:  <form:input path="purCode" />
+Shipment Code:   <form:select path="shpObjCode.shipId">
+	<form:option value="">-select-</form:option>
+	<form:options items="${listShipCode}"/>
+	</form:select><br>
 Reference Number:<form:input path="purRefNo" />
 Quality Check:   <form:radiobutton path="purQua" value="Required" />Required  <form:radiobutton
 				path="purQua" value="Not Required" />Not Required

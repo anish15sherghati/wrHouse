@@ -1,5 +1,6 @@
 package com.aaaws.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 public class WhUserType {
 	@Id
 	@GeneratedValue
+	@Column(name = "whid")
 	private Integer whuserId;
 	private String whuserType;
 	private Integer whuserCode;
@@ -23,7 +25,7 @@ public class WhUserType {
 	public WhUserType() {
 		super();
 	}
-	
+
 	public WhUserType(Integer whuserId) {
 		super();
 		this.whuserId = whuserId;

@@ -82,7 +82,7 @@ public class OrderMethodController {
 	}
 
 	@RequestMapping("/excel")
-	public ModelAndView excelUomData(@RequestParam(value = "oid", required = false) Integer id) {
+	public ModelAndView excelOrderData(@RequestParam(value = "oid", required = false) Integer id) {
 		ModelAndView m = new ModelAndView();
 		m.setView(new OrderMethodExcelView());
 		if (id == null) {

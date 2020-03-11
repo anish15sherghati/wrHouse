@@ -16,4 +16,6 @@ public interface IPurchaseOrderService {
 	public PurchaseOrder getOnePurchaseOrder(Integer id);
 	
 	public void updatePurchaseOrder(PurchaseOrder ob);
+	
+	public List<Object[]> getPurchaseOrderIdAndCode();
 }

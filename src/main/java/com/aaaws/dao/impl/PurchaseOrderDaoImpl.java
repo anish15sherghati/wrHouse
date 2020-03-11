@@ -15,28 +15,29 @@ public class PurchaseOrderDaoImpl implements IPurchaseOrderDao {
 	@Autowired
 	private HibernateTemplate ht;
 
-	@Override
 	public Integer savePurchaseOrder(PurchaseOrder part) {
 		return (Integer) ht.save(part);
 	}
 
-	@Override
 	public void deletePurchaseOrder(Integer id) {
 		ht.delete(new PurchaseOrder(id));
 	}
 
-	@Override
 	public List<PurchaseOrder> getAllPurchaseOrders() {
 		return ht.loadAll(PurchaseOrder.class);
 	}
 
-	@Override
 	public PurchaseOrder getOnePurchaseOrder(Integer id) {
 		return ht.get(PurchaseOrder.class, id);
 	}
 
-	@Override
 	public void updatePurchaseOrder(PurchaseOrder part) {
 		ht.update(part);
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Object[]> getPurchaseOrderIdAndCode() {
+		String sql=" select purId, purCode from "+PurchaseOrder.class.getName() +" ";
+		return (List<Object[]>) ht.find(sql);
 	}
 }

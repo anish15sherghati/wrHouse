@@ -12,7 +12,10 @@
 	<form:form action="save" method="post" modelAttribute="goodsRNote"><pre>
 Grn Code:<form:input path="grnCode" /><br>
 Grn Type:<form:input path="grnType" /><br>
-Order Type:<form:input path="grnOrderCode"/><br>
+Order Type:<form:select path="PurOrderCode.purId">
+<form:option value="">-select-</form:option>
+<form:options items="${purCodeMap}"/>
+</form:select><br>
 Description:<form:input path="grnDesc" /><br>
 		<input type="submit" value="Create GRN">
 	</pre></form:form>

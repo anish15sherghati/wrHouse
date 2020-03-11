@@ -2,10 +2,10 @@ package com.aaaws.service.impl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aaaws.dao.IPurchaseOrderDao;
 import com.aaaws.model.PurchaseOrder;
@@ -20,16 +20,14 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 	public void deletePurchaseOrderById(Integer id) {
 		dao.deletePurchaseOrder(id);
 	}
-
+	@Transactional(readOnly = true)
 	public List<PurchaseOrder> getAllPurchaseOrders() {
 		return dao.getAllPurchaseOrders();
 	}
-
+	@Transactional(readOnly = true)
 	public PurchaseOrder getOnePurchaseOrder(Integer id) {
 		return dao.getOnePurchaseOrder(id);
 	}
-
-	
 	@Transactional
 	public Integer savePurchaseOrder(PurchaseOrder ob) {
 		return dao.savePurchaseOrder(ob);
@@ -39,5 +37,8 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 	public void updatePurchaseOrder(PurchaseOrder ob) {
 		dao.updatePurchaseOrder(ob);
 	}
-
+	@Transactional(readOnly = true)
+	public List<Object[]> getPurchaseOrderIdAndCode() {
+		return dao.getPurchaseOrderIdAndCode();
+	}
 }

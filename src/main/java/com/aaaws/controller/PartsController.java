@@ -2,6 +2,7 @@ package com.aaaws.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -11,12 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.aaaws.model.Parts;
 import com.aaaws.service.IOrderMethodService;
 import com.aaaws.service.IPartsService;
 import com.aaaws.service.IUomService;
 import com.aaaws.util.CommonUi;
+import com.aaaws.view.excel.PartsExcelView;
 
 @Controller
 @RequestMapping("/part")
@@ -87,5 +90,18 @@ public class PartsController {
 		service.deletePart(id);
 		return "redirect:all";
 	}
-
+	
+	@RequestMapping("/excel")
+	public ModelAndView excelPartsData(@RequestParam(value = "pid", required = false) Integer id) {
+		ModelAndView m = new ModelAndView();
+		m.setView(new PartsExcelView());
+		if (id == null) {
+			List<Parts> lists = service.getAllParts();
+			m.addObject("parts", lists);
+		} else {
+			Parts part = service.getOnePart(id);
+			m.addObject("parts", Arrays.asList(part));
+		}
+		return m;
+	}
 }

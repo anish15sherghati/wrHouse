@@ -13,7 +13,6 @@ public interface IShipmentTypeDao {
 	public void updateShipmentType(ShipmentType ob);
 
 	public List<Object[]> getShipmentModeCount();
-	
 	List<Object[]> getShipmentIdAndCode();
 	
 	

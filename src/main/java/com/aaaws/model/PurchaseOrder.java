@@ -1,22 +1,32 @@
 package com.aaaws.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
-@Table(name="purtab")
+@Table(name = "purtab")
 public class PurchaseOrder {
 	@Id
-	@GeneratedValue
+	@Column(name="pid")
+	@GeneratedValue(generator="pidgen")
+	@GenericGenerator(name="pidgen",strategy = "increment")
 	private Integer purId;
 	private String purCode;
-	
+
 	@ManyToOne
+	@JoinColumn(name = "sidFk")
 	private ShipmentType shpObjCode;
-	
+	@ManyToOne
+	@JoinColumn(name = "whidFk")
+	private WhUserType whUserObjV;
+
 	private Integer purRefNo;
 	private String purQua;
 	private String purSts;
@@ -30,14 +40,6 @@ public class PurchaseOrder {
 	public PurchaseOrder() {
 		super();
 	}
-	public ShipmentType getShpObjCode() {
-		return shpObjCode;
-	}
-
-	public void setShpObjCode(ShipmentType shpObjCode) {
-		this.shpObjCode = shpObjCode;
-	}
-
 
 	public Integer getPurId() {
 		return purId;
@@ -53,6 +55,22 @@ public class PurchaseOrder {
 
 	public void setPurCode(String purCode) {
 		this.purCode = purCode;
+	}
+
+	public ShipmentType getShpObjCode() {
+		return shpObjCode;
+	}
+
+	public void setShpObjCode(ShipmentType shpObjCode) {
+		this.shpObjCode = shpObjCode;
+	}
+
+	public WhUserType getWhUserObjV() {
+		return whUserObjV;
+	}
+
+	public void setWhUserObjV(WhUserType whUserObjV) {
+		this.whUserObjV = whUserObjV;
 	}
 
 	public Integer getPurRefNo() {
@@ -89,9 +107,9 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [purId=" + purId + ", purCode=" + purCode + ", shpObjCode=" + shpObjCode + ", purRefNo="
-				+ purRefNo + ", purQua=" + purQua + ", purSts=" + purSts + ", purDesc=" + purDesc + "]";
+		return "PurchaseOrder [purId=" + purId + ", purCode=" + purCode + ", shpObjCode=" + shpObjCode + ", whUserObjV="
+				+ whUserObjV + ", purRefNo=" + purRefNo + ", purQua=" + purQua + ", purSts=" + purSts + ", purDesc="
+				+ purDesc + "]";
 	}
-	
 
 }

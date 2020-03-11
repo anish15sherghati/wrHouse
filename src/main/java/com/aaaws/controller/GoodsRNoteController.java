@@ -1,6 +1,7 @@
 package com.aaaws.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aaaws.model.GoodsRNote;
 import com.aaaws.service.IGoodsRNoteService;
+import com.aaaws.service.IPurchaseOrderService;
+import com.aaaws.util.CommonUi;
 
 @Controller
 @RequestMapping("/grn")
@@ -19,10 +22,19 @@ public class GoodsRNoteController {
 
 	@Autowired
 	private IGoodsRNoteService service;
+	@Autowired
+	private IPurchaseOrderService purchaseService;
+	
+	private void commonUi(Model model) {
+		List<Object[]> purCodeList=purchaseService.getPurchaseOrderIdAndCode();
+		Map<Integer,String> purCodeMap=CommonUi.convert(purCodeList);
+		model.addAttribute("purCodeMap", purCodeMap);
+	}
 
 	@RequestMapping("/register")
 	public String showRegister(Model model) {
 		model.addAttribute("goodsRNote", new GoodsRNote());
+		commonUi(model);
 		return "GrnRegister";
 	}
 

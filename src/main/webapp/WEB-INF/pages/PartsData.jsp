@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="excel">Excel Export</a>
+<a href="pdf">PDF Export</a>
 	<table border="1">
 		<tr>
 			<th>Id</th>
@@ -41,7 +43,6 @@
 				<td><a href="edit?pid=${ob.partId}">Edit</a></td>
 			</tr>
 		</c:forEach>
-
 	</table>
 </body>
 </html>

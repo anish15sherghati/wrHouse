@@ -16,36 +16,36 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService {
 	@Autowired
 	private IWhUserTypeDao dao;
 	
-	@Override
 	@Transactional
 	public Integer saveWhUserType(WhUserType obj) {
 		return dao.saveWhUserType(obj);
 	}
 
-	@Override
 	@Transactional(readOnly = true)
 	public List<WhUserType> getAllWhUserType() {
 		return dao.getAllWhUserType();
 	}
 	
-	@Override
 	@Transactional
 	public void deleteWhUserTypeById(Integer id) {
 		dao.deleteWhUserTypeById(id);
 	}
-	@Override
+	@Transactional(readOnly = true)
 	public WhUserType getWhUserTypeById(Integer id) {
 		return dao.getWhUserTypeById(id);
 	}
 
-	@Override
 	@Transactional
 	public void updateSelectedId(WhUserType obj) {
 		dao.updateSelectedId(obj);
 	}
-
-	@Override
+	@Transactional(readOnly = true)
 	public List<Object[]> getWhUserTypeCount() {
 		return dao.getWhUserTypeCount();
 	}
+	@Transactional(readOnly = true)
+	public List<Object[]> getWhUserTypeIdAndCode(String whuserType) {
+		return dao.getWhUserTypeIdAndCode(whuserType);
+	}
+	
 }

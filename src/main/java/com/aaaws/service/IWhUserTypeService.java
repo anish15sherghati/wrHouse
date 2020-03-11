@@ -17,4 +17,6 @@ public interface IWhUserTypeService {
 	public void updateSelectedId(WhUserType obj);
 	
 	public List<Object[]> getWhUserTypeCount();
+	
+	public List<Object[]> getWhUserTypeIdAndCode(String whuserType);
 }

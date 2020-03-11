@@ -45,7 +45,7 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Object[]> getShipmentIdAndCode() {
-		String sql= " select shipId, shipCode from   com.aaaws.model.ShipmentType ";
+		String sql= " select shipId, shipCode from "+ ShipmentType.class.getName()+" "+" where enabShip='Yes' " ;
 		return (List<Object[]>) ht.find(sql);
 	}
 }

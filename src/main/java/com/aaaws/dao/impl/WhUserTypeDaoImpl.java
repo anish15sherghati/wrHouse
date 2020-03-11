@@ -39,4 +39,11 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 		String sql="select whuserType, count(whuserType) from com.aaaws.model.WhUserType group by whuserType";
 		return (List<Object[]>) ht.find(sql);
 	}
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Object[]> getWhUserTypeIdAndCode(String whuserType) {
+		String sql=" select whuserId, whuserCode from "+ WhUserType.class.getName() + " where whuserType=?0 ";
+		return (List<Object[]>) ht.find(sql, whuserType);
+	}
+	
 }

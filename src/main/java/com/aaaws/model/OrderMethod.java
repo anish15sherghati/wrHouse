@@ -2,17 +2,13 @@ package com.aaaws.model;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "omtab")
@@ -28,8 +24,6 @@ public class OrderMethod {
 	@Column(name = "ordmethod")
 	private String ordMethod;
 	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "omaccept", joinColumns = @JoinColumn(name = "omid"))
-	@OrderColumn(name = "omacpt")
 	private List<String> ordAccept;
 	@Column(name = "omdesc")
 	private String ordDesc;
