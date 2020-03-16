@@ -24,7 +24,7 @@ public class ShippingController {
 		model.addAttribute("shipping", new Shipping());
 		return "ShippingRegister";
 	}
-
+ 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveShipping(@ModelAttribute Shipping shipping, Model model) {
 		service.saveShipping(shipping);
@@ -59,7 +59,7 @@ public class ShippingController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateGrn(@ModelAttribute Shipping shipping, Model model) {
+	public String updateShipping(@ModelAttribute Shipping shipping, Model model) {
 		service.updateSelectedShipping(shipping);
 		return "redirect:all";
 	}
