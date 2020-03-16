@@ -33,8 +33,8 @@ public class PurchaseOrderExcelView extends AbstractXlsxView {
 			r.createCell(0).setCellValue(purchaseOrder.getPurId());
 			r.createCell(1).setCellValue(purchaseOrder.getPurCode());
 			r.createCell(2).setCellValue(purchaseOrder.getShpObjCode().getShipCode());
-			r.createCell(3).setCellValue(purchaseOrder.getWhUserObjV().getWhuserCode());
-			r.createCell(4).setCellValue(purchaseOrder.getWhUserObjC().getWhuserCode());
+			//r.createCell(3).setCellValue(purchaseOrder.getWhUserObjV().getWhuserCode());
+			//r.createCell(4).setCellValue(purchaseOrder.getWhUserObjC().getWhuserCode());
 			r.createCell(5).setCellValue(purchaseOrder.getPurRefNo());
 			r.createCell(6).setCellValue(purchaseOrder.getPurQua());
 			r.createCell(7).setCellValue(purchaseOrder.getPurSts());

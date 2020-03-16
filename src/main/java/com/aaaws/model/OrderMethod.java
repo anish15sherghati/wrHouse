@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "omtab")
+@Table(name = "oomtab")
 public class OrderMethod {
 	@Id
 	@GeneratedValue

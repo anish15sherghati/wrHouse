@@ -11,13 +11,16 @@ import javax.persistence.Table;
 public class Uom {
 	@Id
 	@GeneratedValue
-	@Column(name="umid")
+	@Column(name = "umid")
 	private Integer uomId;
-	@Column(name="umtype")
+
+	@Column(name = "umtype")
 	private String uomType;
-	@Column(name="ummodel")
+
+	@Column(name = "ummodel")
 	private String uomModel;
-	@Column(name="umdesc")
+
+	@Column(name = "umdesc")
 	private String uomDesc;
 
 	public Uom() {
@@ -29,8 +32,7 @@ public class Uom {
 	 * super(); this.uomId = uomId; this.uomType = uomType; this.uomModel =
 	 * uomModel; UomDesc = uomDesc; }
 	 */
-	
-	
+
 	public Integer getUomId() {
 		return uomId;
 	}
@@ -66,6 +68,5 @@ public class Uom {
 	public String toString() {
 		return "Uom [uomId=" + uomId + ", uomType=" + uomType + ", uomModel=" + uomModel + ", UomDesc=" + uomDesc + "]";
 	}
-
 
 }

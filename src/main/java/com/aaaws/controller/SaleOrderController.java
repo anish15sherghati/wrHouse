@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.aaaws.model.SaleOrder;
 import com.aaaws.service.ISaleOrderService;
 import com.aaaws.service.IShipmentTypeService;
+import com.aaaws.service.IWhUserTypeService;
 import com.aaaws.util.CommonUi;
 
 @Controller
@@ -23,11 +24,18 @@ public class SaleOrderController {
 	private ISaleOrderService service;
 	@Autowired
 	private IShipmentTypeService shipService;
+	@Autowired
+	private IWhUserTypeService whuserService;
 
 	private void commonUi(Model model) {
 		List<Object[]> list = shipService.getShipmentIdAndCode();
-		Map<Integer, String> shiplist = CommonUi.convert(list);
-		model.addAttribute("list", shiplist);
+		Map<Integer, String> shipCodeMap = CommonUi.convert(list);
+		model.addAttribute("shipCodeMap", shipCodeMap);
+		
+		List<Object[]> custCodeList=whuserService.getWhUserTypeIdAndCode("Customer");
+		Map<Integer, String> custCodeMap=CommonUi.convert(custCodeList);
+		model.addAttribute("custCodeMap", custCodeMap);
+		
 	}
 
 	@RequestMapping("/register")

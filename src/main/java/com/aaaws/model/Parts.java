@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Parts {
 	@Id
 	@GeneratedValue
-	@Column(name = "pid")
+	@Column(name = "prtid")
 	private Integer partId;
 	private String partCode;
 

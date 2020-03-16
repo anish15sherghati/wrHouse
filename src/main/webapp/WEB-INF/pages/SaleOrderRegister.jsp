@@ -15,7 +15,12 @@ Order Code:<form:input path="salCode" />
 <br>
 Shipment Code:<form:select path="shipObj.shipId">
 <form:option value="">-select-</form:option>
-<form:options items="${list}" />
+<form:options items="${shipCodeMap}" />
+</form:select>
+<br>
+Customer Code:<form:select path="whTypeCust.whuserId">
+<form:option value="">-select-</form:option>
+<form:options items="${custCodeMap}" />
 </form:select>
 <br>
 Ref Number:  <form:input path="salRefNo" />

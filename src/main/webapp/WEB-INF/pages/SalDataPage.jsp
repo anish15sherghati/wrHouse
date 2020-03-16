@@ -14,6 +14,7 @@
 			<th>Id</th>
 			<th>Code</th>
 			<th>ShipCode</th>
+			<th>CustCode</th>
 			<th>SalRef</th>
 			<th>StockMode</th>
 			<th>StockSource</th>
@@ -26,6 +27,7 @@
 			<td>${ob.salId}</td>
 			<td>${ob.salCode}</td>
 			<td>${ob.shipObj.shipCode}</td>
+			<td>${ob.whTypeCust.whuserCode}</td>
 			<td>${ob.salRefNo}</td>
 			<td>${ob.stockMode}</td>
 			<td>${ob.stockSource}</td>
@@ -35,13 +37,7 @@
 			<td><a href="delete?sid=${ob.salId}">Delete</a></td>
 			<td><a href="edit?sid=${ob.salId}">Edit</a></td>
 		</tr>
-	
-	
-	
 	</class:forEach>
-
-
-
 
 	</table>
 

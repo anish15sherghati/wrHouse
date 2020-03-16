@@ -31,7 +31,7 @@ public class PurchaseOrderContoller {
 	@Autowired
 	private IWhUserTypeService whUserService;
 
-	private void commonUi(Model model) {
+	private void commonui(Model model) {
 		List<Object[]> list = shipservice.getShipmentIdAndCode();
 		Map<Integer, String> listShipCode = CommonUi.convert(list);
 		model.addAttribute("listShipCode", listShipCode);
@@ -50,18 +50,16 @@ public class PurchaseOrderContoller {
 	@RequestMapping("/register")
 	public String showRegister(Model model) {
 		setDefaultStatus(model);
-		commonUi(model);
+		commonui(model);
 		return "PurOrderRegister";
 	}
-	
 	@RequestMapping(value = "/save", method = POST)
 	public String savePurchaseOrder(@ModelAttribute PurchaseOrder purchaseOrder, Model model) {
-		service.savePurchaseOrder(purchaseOrder);
+		Integer id=service.savePurchaseOrder(purchaseOrder);
 		setDefaultStatus(model);
-		commonUi(model);
+		commonui(model);
 		return "PurOrderRegister";
 	}
-	
 	@RequestMapping(value = "/all")
 	public String dataPurchaseOrder(Model model) {
 		model.addAttribute("list", service.getAllPurchaseOrders());
@@ -105,6 +103,9 @@ public class PurchaseOrderContoller {
 		}
 		return m;
 	}
+
+	
+	
 	
 	
 }

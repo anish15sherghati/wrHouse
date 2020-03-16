@@ -14,9 +14,11 @@ import com.aaaws.model.Shipping;
 import com.aaaws.service.IShippingService;
 
 @Controller
+@RequestMapping("/shipping")
 public class ShippingController {
 	@Autowired
 	private IShippingService service;
+
 	@RequestMapping("/register")
 	public String showRegister(Model model) {
 		model.addAttribute("shipping", new Shipping());

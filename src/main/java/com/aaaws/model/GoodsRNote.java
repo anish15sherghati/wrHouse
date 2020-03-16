@@ -16,8 +16,9 @@ public class GoodsRNote {
 	private Integer grnId;
 	private String grnCode;
 	private String grnType;
+	
 	@ManyToOne
-	@JoinColumn(name="pidFk")
+	@JoinColumn(name="puidFk")
 	private PurchaseOrder PurOrderCode;
 	
 	private String grnDesc;
