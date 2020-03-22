@@ -30,7 +30,6 @@ public class DocumentController {
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String saveDocument(@RequestParam Integer filId, @RequestParam CommonsMultipartFile filOb, Model model) {
-		System.out.println("Open");
 		if (filOb != null) {
 			Document doc = new Document();
 			doc.setFileId(filId);
@@ -39,36 +38,27 @@ public class DocumentController {
 			service.saveDocument(doc);
 			String msg = filId + "'  uploaded";
 			model.addAttribute("message", msg);
-			System.out.println("Dead");
 		}
 		return "Documents";
 	}
-	
+
 	@RequestMapping("/show")
-	public String showUploadPage(Model model){
-		List<Object[]> list=service.getFileIdAndNames();
+	public String showUploadPage(Model model) {
+		List<Object[]> list = service.getFileIdAndNames();
 		model.addAttribute("list", list);
-		
+
 		return "Documents";
 	}
-	
+
 	@RequestMapping("/download")
-	public void downloadPage(@RequestParam Integer fid,HttpServletResponse resp)
-	{
-		Document doc=service.getOneDocument(fid);
-		resp.addHeader("Content-Disposition", "attachment;filename="+doc.getFileName());
+	public void downloadPage(@RequestParam Integer fid, HttpServletResponse resp) {
+		Document doc = service.getOneDocument(fid);
+		resp.addHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
 		try {
 			FileCopyUtils.copy(doc.getFileData(), resp.getOutputStream());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
