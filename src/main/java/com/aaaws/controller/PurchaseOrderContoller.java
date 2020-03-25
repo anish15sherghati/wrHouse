@@ -30,7 +30,7 @@ public class PurchaseOrderContoller {
 	private IShipmentTypeService shipservice;
 	@Autowired
 	private IWhUserTypeService whUserService;
-	
+	 
 	private void commonui(Model model) {
 		List<Object[]> list = shipservice.getShipmentIdAndCode();
 		Map<Integer, String> listShipCode = CommonUi.convert(list);
