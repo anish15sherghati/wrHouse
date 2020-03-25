@@ -53,7 +53,8 @@ KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 							<label for="whuserCode">User Code</label>
 						</div>
 						<div class="col-4">
-							<form:input path="whuserCode" class="form-control" />
+							<form:input path="whuserCode" id="whuserCode"
+								class="form-control" />
 						</div>
 						<div class="col-4" id="whuserCodeError"></div>
 					</div>

@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -38,7 +41,6 @@ Description:	<form:textarea path="shipDesc"></form:textarea>
 </pre>
 </form:form>
 ${msg}
-
 
 </body>
 </html>

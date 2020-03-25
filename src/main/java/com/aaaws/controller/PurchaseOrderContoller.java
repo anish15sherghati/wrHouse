@@ -30,12 +30,11 @@ public class PurchaseOrderContoller {
 	private IShipmentTypeService shipservice;
 	@Autowired
 	private IWhUserTypeService whUserService;
-
+	
 	private void commonui(Model model) {
 		List<Object[]> list = shipservice.getShipmentIdAndCode();
 		Map<Integer, String> listShipCode = CommonUi.convert(list);
 		model.addAttribute("listShipCode", listShipCode);
-		
 		List<Object[]> venCodeList = whUserService.getWhUserTypeIdAndCode("Vendor");
 		Map<Integer, String> venCodeMap = CommonUi.convert(venCodeList);
 		model.addAttribute("venCodeMap", venCodeMap);
@@ -103,9 +102,5 @@ public class PurchaseOrderContoller {
 		}
 		return m;
 	}
-
-	
-	
-	
 	
 }
