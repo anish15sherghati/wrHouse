@@ -3,44 +3,97 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
-<!-- <head>
+<head>
 <meta charset="ISO-8859-1">
 <title>OrderMethod</title>
-<style>
-h3 {
-	backgroundcolor: white;
-	color: blue;
-}
-</style>
-</head> -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
 <body bgcolor="orange">
-	<H3>WELCOME TO METHOD ORDER REGISTER PAGES !!</H3>
-	<form:form action="save" method="POST" modelAttribute="orderMethod">
-		<pre>
-<b>
-Order Mode:  <form:radiobutton path="ordMode" value="Sale" />Sale   <form:radiobutton
-					path="ordMode" value="Purchase" />Purchase
-<br>
-Order Code:  <form:input path="ordCode" />
-<br>
-Order Method:<form:select path="ordMethod">
-			<form:option value="">-select-</form:option>
-			<form:option value="FIFO">FIFO</form:option>
-			<form:option value="LIFO">LIFO</form:option>
-			<form:option value="FCFO">FCFO</form:option>
-			<form:option value="FEFO">FEFO</form:option>
-			</form:select>
-<br>
-Order Accept:<form:checkbox path="ordAccept" value="Multi-Model" />Multi-Model   <form:checkbox path="ordAccept" value="Accept Return" />Accept Return
-<br>
-Description:<form:textarea path="ordDesc"></form:textarea>
-<br>
-         <input type="submit" name="Create Order Method">
-<br>
-			</b>
-</pre>
-	</form:form>
-	${msg}
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<H3>WELCOME TO METHOD ORDER REGISTER PAGES !!</H3>
+			</div>
+			<div class="card-body">
+				<form:form action="save" method="POST" modelAttribute="orderMethod">
+					<div class="row">
+						<div class="col-4">
+							<label for="ordMode"><b>Order Mode: </b></label>
+						</div>
+						<div class="col-4">
+							<form:radiobutton path="ordMode" value="Sale" />
+							Sale
+							<form:radiobutton path="ordMode" value="Purchase" />
+							Purchase
+						</div>
+						<div class="col-4" id="ordMode"></div>
+					</div>
 
+					<div class="row">
+						<div class="col-4">
+							<label for="ordCode"><b>Order Code:</b></label>
+						</div>
+						<div class="col-4">
+							<form:input path="ordCode" />
+						</div>
+						<div class="col-4" id="ordCode"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-4">
+							<label for="ordMethod"><b>Order Method: </b></label>
+						</div>
+						<div class="col-4">
+							<form:select path="ordMethod">
+								<form:option value="">-select-</form:option>
+								<form:option value="FIFO">FIFO</form:option>
+								<form:option value="LIFO">LIFO</form:option>
+								<form:option value="FCFO">FCFO</form:option>
+								<form:option value="FEFO">FEFO</form:option>
+							</form:select>
+						</div>
+						<div class="col-4" id="ordMethod"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-4">
+							<label for="ordAccept"><b>Order Accept:</b></label>
+						</div>
+						<div class="col-4">
+							<form:checkbox path="ordAccept" value="Multi-Model" />
+							Multi-Model
+							<form:checkbox path="ordAccept" value="Accept Return" />
+							Accept Return
+						</div>
+						<div class="col-4" id="ordAccept"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-4">
+							<label for="ordDesc"><b> Description: </b></label>
+						</div>
+						<div class="col-4">
+							<form:textarea path="ordDesc"></form:textarea>
+						</div>
+						<div class="col-4" id="ordDesc"></div>
+					</div>
+					
+					<div class="row">
+						<div class="col-4">
+								<input type="submit" name="Create Order Method" class="btn btn-success">
+						</div>
+						<div class="col-4">
+								${msg}
+						</div>
+					</div>
+
+				</form:form>
+			</div>
+			<div class="card-footer bg-info">
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
