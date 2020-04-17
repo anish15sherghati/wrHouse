@@ -19,5 +19,9 @@ public interface IUomDao {
 	public List<Object[]> getUomTypeCount();
 
 	public List<Object[]> getUomIdAndModel();
+	
+	public boolean isUomModelExist(String uomModel);
+	
+	
 
 }

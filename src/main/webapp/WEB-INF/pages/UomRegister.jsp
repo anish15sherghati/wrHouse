@@ -3,37 +3,18 @@
 <!DOCTYPE html>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
-
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-
-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous">
-	
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-
-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous"></script>
 </head>
 <body>
-	<%-- <%@include file="UserMenu.jsp"%> --%>
+	<%@include file="usermenu.jsp"%>
 	<div class="container">
 		<div class="card">
 			<div class="card-header bg-primary text-white">
 				<h1>Welcome to Uom Register Page</h1>
 			</div>
 			<div class="card-body">
-				<form:form id="myForm" action="save" method="POST" modelAttribute="uom">
+				<form:form id="myForm" action="save" method="POST"
+					modelAttribute="uom">
 					<!--new Row -->
 					<div class="row">
 						<div class="col-4">
@@ -48,6 +29,7 @@ KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 							</form:select>
 						</div>
 						<div class="col-4" id="uomTypeError"></div>
+
 					</div>
 					<!--new Row -->
 					<div class="row">
@@ -57,7 +39,10 @@ KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 						<div class="col-4">
 							<form:input path="uomModel" class="form-control" />
 						</div>
-						<div class="col-4" id="uomModelError"></div>
+						<div class="col-2" id="uomModelError"></div>
+						<div class="col-2">
+							<form:errors path="uomModel" cssClass="text-danger" />
+						</div>
 					</div>
 					<!--new Row -->
 					<div class="row">
@@ -65,16 +50,17 @@ KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 							<label for="uomDesc"> NOTE</label>
 						</div>
 						<div class="col-4">
-							<form:textarea path="uomDesc" class="form-control" />
+							<form:textarea path="uomDesc" class="form-control"></form:textarea>
 						</div>
 						<div class="col-4" id="noteError"></div>
 					</div>
+
 					<input type="submit" value="Register" id="register"
 						class="btn btn-success" />
 				</form:form>
 			</div>
 			<div class="card-footer bg-info text-white">
-				<b>${message}</b>
+				<b>${msg}</b>
 			</div>
 		</div>
 	</div>
@@ -119,7 +105,7 @@ KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 				return uomModelError;
 			}
 			function validate_note() {
-				var val = $("#note").val();
+				var val = $("#uomDesc").val();
 				if (val == '') {
 					$("#noteError").show();
 					$("#noteError").html("Enter <b>UOM DESCRIPTION</b>");

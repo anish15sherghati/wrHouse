@@ -23,7 +23,7 @@
 							<label for="shipMode"><b>Shipment Mode:</b></label>
 						</div>
 						<div class="col-4">
-							<form:select path="shipMode" id="shipMode">
+							<form:select path="shipMode" >
 								<form:option value="">--Select--</form:option>
 								<form:option value="Train">Train</form:option>
 								<form:option value="Air">Air</form:option>

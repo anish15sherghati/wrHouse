@@ -53,6 +53,8 @@ public class UomServiceImpl implements IUomService {
 		return dao.getUomIdAndModel();
 	}
 	
-	
+	public boolean isUomModelExist(String uomModel) {
+		return dao.isUomModelExist(uomModel);
+	}
 	
 }

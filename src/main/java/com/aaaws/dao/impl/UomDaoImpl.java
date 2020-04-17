@@ -48,4 +48,20 @@ public class UomDaoImpl implements IUomDao {
 		String sql = " select uomId, uomModel from com.aaaws.model.Uom ";
 		return (List<Object[]>) ht.find(sql);
 	}
+
+	public boolean isUomModelExist(String uomModel) {
+		boolean flag = false;
+		String hql = " Select count(uomModel) from com.aaaws.model.Uom where uomModel=?0 ";
+		@SuppressWarnings({ "deprecation", "unchecked" })
+		List<Long> list = (List<Long>) ht.find(hql, uomModel);
+		if (list != null && !list.isEmpty()) {
+			long count = list.get(0);
+			if (count == 0)
+				flag = false;
+			else
+				flag = true;
+		}
+		return flag;
+
+	}
 }

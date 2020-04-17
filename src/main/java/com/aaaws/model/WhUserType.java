@@ -14,13 +14,14 @@ public class WhUserType {
 	@Column(name = "whid")
 	private Integer whuserId;
 	private String whuserType;
-	private Integer whuserCode;
+	private String whuserCode;
 	private String whuserFor;
 	private String whuserEmail;
 	private Long whuserCont;
 	private String whuserIdType;
 	private String whuserIfOther;
-	private Integer whuserIdNum;
+	private String whuserIdNum;
+	private String note;
 
 	public WhUserType() {
 		super();
@@ -47,11 +48,11 @@ public class WhUserType {
 		this.whuserType = whuserType;
 	}
 
-	public Integer getWhuserCode() {
+	public String getWhuserCode() {
 		return whuserCode;
 	}
 
-	public void setWhuserCode(Integer whuserCode) {
+	public void setWhuserCode(String whuserCode) {
 		this.whuserCode = whuserCode;
 	}
 
@@ -95,20 +96,29 @@ public class WhUserType {
 		this.whuserIfOther = whuserIfOther;
 	}
 
-	public Integer getWhuserIdNum() {
+	public String getWhuserIdNum() {
 		return whuserIdNum;
 	}
 
-	public void setWhuserIdNum(Integer whuserIdNum) {
+	public void setWhuserIdNum(String whuserIdNum) {
 		this.whuserIdNum = whuserIdNum;
+	}
+
+	
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 	@Override
 	public String toString() {
-		return "WHUserType [whuserId=" + whuserId + ", whuserType=" + whuserType + ", whuserCode=" + whuserCode
+		return "WhUserType [whuserId=" + whuserId + ", whuserType=" + whuserType + ", whuserCode=" + whuserCode
 				+ ", whuserFor=" + whuserFor + ", whuserEmail=" + whuserEmail + ", whuserCont=" + whuserCont
 				+ ", whuserIdType=" + whuserIdType + ", whuserIfOther=" + whuserIfOther + ", whuserIdNum=" + whuserIdNum
-				+ "]";
+				+ ", note=" + note + "]";
 	}
 
 }
